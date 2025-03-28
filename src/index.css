@@ -1,1 +1,23 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap');
+
+:root {
+
+    --blogname: #b40933;
+}
+
+header {
+
+    font-family: "Delius Swash Caps", cursive;
+    color: var(--blogname);
+
+    img {
+
+        max-width: 3rem;
+    }
+}
+
+.container {
+
+    width: 60%;
+}

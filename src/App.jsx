@@ -15,31 +15,43 @@ export default function App() {
   useEffect(fetchPosts, []);
 
   return (
-
     <>
-      <div className="container py-5">
+      <header className="bg-danger-subtle">
 
-        <ul>
-          {posts.map((post) => (
-            <li key={post.slug}>{post.title}</li>
-          ))}
-        </ul>
-
-        <div className="row row-cols-3 g-3">
-
-          {posts.map(post => (
-            <div className="col" key={`post-${post.slug}`}>
-              <div className="card">
-                <img className="card-img-top" src={`http://localhost:3000${post.image}`} alt={post.title} />
-                <div className="card-body">
-                  <span className="fs-6 fw-bold">{post.title}</span>
-                </div>
-              </div>
-            </div>
-          ))}
+        <div className="container">
+          <div className="d-flex justify-content-center py-3">
+            <img className="mx-3" src="public/cake-cup-color-icon.svg" alt="" />
+            <h1>React Api Blog</h1>
+          </div>
         </div>
 
-      </div>
+      </header>
+
+      <main className="bg-light">
+        <div className="container py-3">
+
+          <div className="row row-cols-3 g-3">
+
+            {posts.map(post => (
+              <div className="col" key={`post-${post.slug}`}>
+                <div className="card">
+                  <img className="card-img-top" src={`http://localhost:3000${post.image}`} alt={post.title} />
+                  <div className="card-body">
+                    <span className="fs-6 fw-bold">{post.title}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <ul className="list-group mt-3">
+            {posts.map((post) => (
+              <li className="list-group-item" key={post.slug}>{post.title}</li>
+            ))}
+          </ul>
+
+        </div>
+      </main>
     </>
   );
 }
