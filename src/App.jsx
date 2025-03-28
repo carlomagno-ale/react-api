@@ -30,7 +30,7 @@ export default function App() {
           {posts.map(post => (
             <div className="col" key={`post-${post.slug}`}>
               <div className="card">
-                <img className="card-img-top" src={post.image} alt={post.title} />
+                <img className="card-img-top" src={`http://localhost:3000${post.image}`} alt={post.title} />
                 <div className="card-body">
                   <span className="fs-6 fw-bold">{post.title}</span>
                 </div>
