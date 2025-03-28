@@ -1,21 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const api_endpoint = 'http://localhost:3000/api/v1/posts'
 
-function App() {
+export default function App() {
 
-  fetch(api_endpoint)
-    .then(res => res.json()
-      .then(data => {
-        console.log(data);
-      }))
 
+  const [posts, setPosts] = useState([])
+
+  function fetchPosts() {
+    fetch(api_endpoint)
+      .then((res) => res.json())
+      .then(setPosts)
+  }
+
+  useEffect(fetchPosts, []);
 
   return (
-    <>
-      <h1>react api</h1>
-    </>
-  )
-}
 
-export default App
+    <>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug}>{post.title}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
